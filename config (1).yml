@@ -1,0 +1,105 @@
+# PrimeTal - talismans and spheres
+#
+# Talismans: effects work while the item is anywhere in the inventory
+#            (talismans.mode: offhand = only while held in the off hand).
+# Spheres:   effects work only while the item is in the off hand.
+#
+# effects:   "<effect>:<level-1>"  e.g. "strength:0" = Strength I, "speed:1" = Speed II
+#            effect ids are vanilla names: strength, speed, regeneration, resistance, haste,
+#            night_vision, fire_resistance, jump_boost, invisibility, health_boost, water_breathing ...
+# specials:  vampire (heal fraction of damage), phoenix (cooldown seconds, survive death),
+#            ignite (fire ticks on hit), slow (seconds of Slowness II on hit),
+#            blind (seconds of Blindness on hit), nofall (no fall damage)
+# After editing:  /talisman reload   (or restart the server)
+
+talismans:
+  mode: inventory       # inventory = works anywhere in the inventory | offhand = only in the off hand
+  items:
+    strength:
+      name: "&cТалисман Силы"
+      material: BLAZE_POWDER
+      lore: ["&7Сила I"]
+      effects: ["strength:0"]
+    speed:
+      name: "&bТалисман Скорости"
+      material: SUGAR
+      lore: ["&7Скорость II"]
+      effects: ["speed:1"]
+    regeneration:
+      name: "&dТалисман Регенерации"
+      material: GHAST_TEAR
+      lore: ["&7Регенерация I"]
+      effects: ["regeneration:0"]
+    resistance:
+      name: "&8Талисман Защиты"
+      material: NETHERITE_SCRAP
+      lore: ["&7Сопротивление урону I"]
+      effects: ["resistance:0"]
+    haste:
+      name: "&6Талисман Шахтёра"
+      material: GOLD_NUGGET
+      lore: ["&7Спешка II"]
+      effects: ["haste:1"]
+    night:
+      name: "&9Талисман Ночного Зрения"
+      material: FERMENTED_SPIDER_EYE
+      lore: ["&7Ночное зрение"]
+      effects: ["night_vision:0"]
+    vampire:
+      name: "&4Талисман Вампира"
+      material: RABBIT_FOOT
+      lore: ["&7Каждый удар лечит 20% нанесённого урона"]
+      specials:
+        vampire: 0.2
+    phoenix:
+      name: "&6Талисман Феникса"
+      material: FEATHER
+      lore: ["&7Спасает от смерти. Откат 5 минут"]
+      specials:
+        phoenix: 300      # cooldown in seconds
+
+spheres:                # only work in the off hand
+  items:
+    fire:
+      name: "&cСфера Огня"
+      material: BLAZE_ROD
+      lore: ["&7Огнестойкость", "&7Удары поджигают врага"]
+      effects: ["fire_resistance:0"]
+      specials:
+        ignite: 100       # ticks of fire
+    ice:
+      name: "&bСфера Льда"
+      material: PRISMARINE_CRYSTALS
+      lore: ["&7Скорость I", "&7Удары замедляют врага"]
+      effects: ["speed:0"]
+      specials:
+        slow: 4           # seconds of Slowness II
+    wind:
+      name: "&fСфера Ветра"
+      material: PHANTOM_MEMBRANE
+      lore: ["&7Скорость II, Прыгучесть II", "&7Нет урона от падения"]
+      effects: ["speed:1", "jump_boost:1"]
+      specials:
+        nofall: 1
+    earth:
+      name: "&2Сфера Земли"
+      material: CLAY_BALL
+      lore: ["&7Сопротивление урону II"]
+      effects: ["resistance:1"]
+    light:
+      name: "&eСфера Света"
+      material: GLOWSTONE_DUST
+      lore: ["&7Регенерация II", "&7Ночное зрение"]
+      effects: ["regeneration:1", "night_vision:0"]
+    shadow:
+      name: "&5Сфера Тени"
+      material: ECHO_SHARD
+      lore: ["&7Невидимость, Скорость I", "&7Удары ослепляют врага"]
+      effects: ["invisibility:0", "speed:0"]
+      specials:
+        blind: 3          # seconds of Blindness
+    life:
+      name: "&aСфера Жизни"
+      material: HEART_OF_THE_SEA
+      lore: ["&7+4 сердца (Прилив здоровья III)"]
+      effects: ["health_boost:2"]

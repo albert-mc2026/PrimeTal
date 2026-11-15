@@ -1,0 +1,16 @@
+name: PrimeTal
+version: 1.0.0
+main: kg.primetal.PrimeTal
+api-version: '1.21'
+description: 8 talismans and 7 spheres with passive effects and special abilities
+commands:
+  talisman:
+    description: Talismans (work in the inventory)
+    usage: "/talisman [list|give <player> <id> [amount]|reload]"
+  sphere:
+    description: Spheres (work in the off hand)
+    usage: "/sphere [list|give <player> <id> [amount]|reload]"
+permissions:
+  primetal.admin:
+    description: Give talismans/spheres and reload the config
+    default: op
